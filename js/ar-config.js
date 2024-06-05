@@ -101,7 +101,7 @@ function changeAppBuildGradle() {
     let path = "platforms/android/app/build.gradle";
     //logFile(path);
     let strToFind = "// SUB-PROJECT DEPENDENCIES END";
-    let extraStr = "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\libs'), include: ['*.jar'])";
+    let extraStr = "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\\\libs'), include: ['*.jar']);";
     let replaceByStr = "implementation(project(path: \":unityLibrary\"))\n" + strToFind + "\n" + extraStr;
     
     changeFileContent(path,strToFind,replaceByStr);
