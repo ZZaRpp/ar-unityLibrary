@@ -165,28 +165,6 @@ function generateUnityLibrary() {
 }
 
 
-function unzipUnityLibrary(){ 
-    // Define the relative path to the file in the Git repository
-    let relativeFilePath = '/unityLibrary_small.zip';
-
-    let wwwPath = "platforms/android/app/src/main/www/";
-
-    logAppFolders(wwwPath);
-
-    let zipFilePath = path.join(wwwPath, relativeFilePath);
-    let extractToDir = 'platforms/android/unityLibrary';
-
-    console.log("--- UNZIPPING UNITYLIBRARY: " + extractToDir + " ---");
-    
-    // Instantiate AdmZip object with the zip file
-    let zip = new AdmZip(zipFilePath);
-    
-    // Extract all contents of the zip file
-    zip.extractAllTo(extractToDir, true /* overwrite */);
-    
-    console.log('Zip file extracted successfully.');
-}
-
 
 function getAndUnzipUnityLibrary(projRoot){
     let https = require('https');
@@ -234,12 +212,11 @@ function checkFolder(path){
 function changeFiles() {
 
     changeConfigXML();
-    changeSettingsGradle();
+    //changeSettingsGradle();
     changeProjectProperties();
-    changeGradleProperties();
+    //changeGradleProperties();
     changeAndroidBuildGradle();
     changeAppBuildGradle();
-
 }
 
 
