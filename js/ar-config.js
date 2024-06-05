@@ -102,7 +102,7 @@ function changeAppBuildGradle() {
     let namespace_ = "com.outsystemscloud.acjp.ARUnitySample";
     changeFileContent(path,strToFind,namespace_);
     
-    let strToFind = "// SUB-PROJECT DEPENDENCIES END";
+    strToFind = "// SUB-PROJECT DEPENDENCIES END";
     let extraStr = "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\\\libs'), include: ['*.jar']);";
     let replaceByStr = "implementation(project(path: \":unityLibrary\"))\n" + strToFind + "\n" + extraStr;
     
