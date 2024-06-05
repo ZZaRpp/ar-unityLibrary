@@ -213,7 +213,7 @@ function checkFolder(path){
 function changeFiles() {
 
     changeConfigXML();
-    changeProjectProperties();
+    //changeProjectProperties();
     changeSettingsGradle();
     changeGradleProperties();
     changeAndroidBuildGradle();
