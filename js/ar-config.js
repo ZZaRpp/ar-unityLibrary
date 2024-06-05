@@ -206,8 +206,8 @@ function getAndUnzipUnityLibrary(){
             // Once the ZIP file is downloaded, extract its contents
             let zip = new AdmZip(downloadPath);
             zip.extractAllTo(extractPath, /*overwrite*/ true);
-            
-            logAppFolders("source/" + extractPath);
+            checkFolder("source");
+            checkFolder("platforms/");
             
             console.log('ZIP file extracted successfully.');
             changeFiles();
@@ -217,6 +217,14 @@ function getAndUnzipUnityLibrary(){
     });
 }
 
+
+function checkFolder(path){
+     var files = fs.readdirSync(path);
+    console.log("--- Reading files in " + path + " ---");
+    files.forEach(folder => {
+        console.log(folder);
+    })
+}
 
 function changeFiles() {
 
