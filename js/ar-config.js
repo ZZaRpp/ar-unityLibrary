@@ -99,7 +99,7 @@ function changeAppBuildGradle() {
     //logFile(path);
 
     let strToFind = "cordovaConfig.PACKAGE_NAMESPACE";
-    let namespace_ = "com.outsystemscloud.acjp.ARUnitySample";
+    let namespace_ = "'com.outsystemscloud.acjp.ARUnitySample'";
     changeFileContent(path,strToFind,namespace_);
     
     strToFind = "// SUB-PROJECT DEPENDENCIES END";
