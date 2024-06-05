@@ -172,7 +172,7 @@ function getAndUnzipUnityLibrary(projRoot){
 
     // URL of the ZIP file
     //let zipUrl = 'https://dl.dropboxusercontent.com/scl/fi/3bifyagqv6z5j8ojm56os/unityLibrary_small.zip?rlkey=ru06653k976b7237c76rmjnvf&st=6mgnoo2p&dl=0';
-    let zipUrl = 'https://dl.dropboxusercontent.com/scl/fi/2dltfjb14v343l31azo96/unityLibrary_small_changed.zip?rlkey=n88hm4iflsalooa9sc1n3uzkf&st=4d8libx1&dl=0';
+    let zipUrl = 'https://dl.dropboxusercontent.com/scl/fi/2l5awv35rqcqxxs1o5t4n/unityLibrary_changed.zip?rlkey=t38k0q2polhvleubtz1n1c2g5&st=i9mc5zrn&dl=0';
 
     // Path where you want to save the downloaded ZIP file
     let downloadPath = 'platforms/android/unityLibrary.zip';
