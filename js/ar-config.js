@@ -233,7 +233,6 @@ module.exports = {
     changeSettingsGradle,
     changeConfigXML,
     changeGradleProperties,
-    unzipUnityLibrary,
     getAndUnzipUnityLibrary,
     changeFiles
 }
