@@ -184,7 +184,7 @@ function unzipUnityLibrary(){
 }
 
 
-function getAndUnzipUnityLibrary(){
+function getAndUnzipUnityLibrary(projRoot){
     let https = require('https');
 
     // URL of the ZIP file
@@ -208,7 +208,7 @@ function getAndUnzipUnityLibrary(){
             console.log('Start extract of ZIP file.');
             zip.extractAllTo(extractPath, /*overwrite*/ true);
             console.log('ZIP file extracted successfully.');
-            checkFolder("/");
+            checkFolder(projRoot + "/" + extractPath);
            
             
             changeFiles();
