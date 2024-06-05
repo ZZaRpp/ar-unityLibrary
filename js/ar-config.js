@@ -82,14 +82,15 @@ function changeAndroidBuildGradle() {
     let path = "platforms/android/build.gradle";
     //logFile(path);
 
-    let replaceByStr = "repositories {\nrepos" + os.EOL + "flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" " + os.EOL + " } " + os.EOL + " }";
+    let strToFind = "allprojects {";
+    let namespace_ = "android {namespace cordovaConfig.PACKAGE_NAMESPACE}" + strToFind;
+    changeFileContent(path,strToFind,namespace_);
     
+    let replaceByStr = "repositories {\nrepos" + os.EOL + "flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" " + os.EOL + " } " + os.EOL + " }";
     let content = fs.readFileSync(path, "utf8");
-
     let search = /repositories repos/g;
     let t = 0
     content = content.replace(search, match => ++t === 2 ? replaceByStr : match)
-
     fs.writeFileSync(path, content);
 
     //Log the changed file
