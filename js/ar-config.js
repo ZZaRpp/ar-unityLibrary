@@ -83,7 +83,8 @@ function changeAndroidBuildGradle() {
     //logFile(path);
 
     let strToFind = "allprojects {";
-    let namespace_ = "android {namespace cordovaConfig.PACKAGE_NAMESPACE}" + strToFind;
+    let namespace_ = "android {namespace com.outsystemscloud.acjp.ARUnitySample}" + strToFind;
+    //let namespace_ = "android {namespace cordovaConfig.PACKAGE_NAMESPACE}" + strToFind;
     changeFileContent(path,strToFind,namespace_);
     
     let replaceByStr = "repositories {\nrepos" + os.EOL + "flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" " + os.EOL + " } " + os.EOL + " }";
