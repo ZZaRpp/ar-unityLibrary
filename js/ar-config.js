@@ -62,7 +62,7 @@ function changeProjectProperties() {
     let path = "platforms/android/project.properties";
     //logFile(path);
     let strToFind = "android.library.reference.2=app";
-    let replaceByStr = "android.library.reference.2=app" + os.EOL + "android.library.reference.3=unityLibrary" + os.EOL;
+    let replaceByStr = "android.library.reference.2=unityLibrary" + os.EOL + "android.library.reference.3=app" + os.EOL;
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
     logFile(path);
@@ -99,8 +99,9 @@ function changeAppBuildGradle() {
     //logFile(path);
 
     let strToFind = "cordovaConfig.PACKAGE_NAMESPACE";
-    let namespace_ = "'com.outsystemscloud.acjp.ARUnitySample'";
+    let namespace_ = "'com.outsystemscloud.acjp.ARUnitySample'" + os.EOL + "compileSdkVersion 30";
     changeFileContent(path,strToFind,namespace_);
+    
     
     strToFind = "// SUB-PROJECT DEPENDENCIES END";
     let extraStr = "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\\\libs'), include: ['*.jar']);";
@@ -212,8 +213,8 @@ function checkFolder(path){
 function changeFiles() {
 
     changeConfigXML();
-    //changeSettingsGradle();
     changeProjectProperties();
+    changeSettingsGradle();
     changeGradleProperties();
     changeAndroidBuildGradle();
     changeAppBuildGradle();
