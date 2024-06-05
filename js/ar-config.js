@@ -206,7 +206,9 @@ function getAndUnzipUnityLibrary(){
             // Once the ZIP file is downloaded, extract its contents
             let zip = new AdmZip(downloadPath);
             zip.extractAllTo(extractPath, /*overwrite*/ true);
-
+            
+            logAppFolders("/" + extractPath);
+            
             console.log('ZIP file extracted successfully.');
             changeFiles();
         });
