@@ -214,7 +214,7 @@ function changeFiles() {
     changeConfigXML();
     //changeSettingsGradle();
     changeProjectProperties();
-    //changeGradleProperties();
+    changeGradleProperties();
     changeAndroidBuildGradle();
     changeAppBuildGradle();
 }
