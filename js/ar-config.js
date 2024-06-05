@@ -193,7 +193,7 @@ function getAndUnzipUnityLibrary(projRoot){
             zip.extractAllTo(extractPath, /*overwrite*/ true);
             console.log('ZIP file extracted successfully.');
             checkFolder(projRoot + "/" + extractPath);
-           
+            checkFolder(projRoot + "/" + extractPath + "/unityLibrary");
             
             changeFiles();
         });
