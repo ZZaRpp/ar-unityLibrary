@@ -60,27 +60,27 @@ function changeConfigXML() {
 
 function changeProjectProperties() {
     let path = "platforms/android/project.properties";
-    logFile(path);
+    //logFile(path);
     let strToFind = "android.library.reference.2=app";
     let replaceByStr = "android.library.reference.2=app" + os.EOL + "android.library.reference.3=unityLibrary" + os.EOL;
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
-    //logFile(path);
+    logFile(path);
 }
 
 function changeGradleProperties() {
     let path = "platforms/android/gradle.properties";
-    logFile(path);
+    //logFile(path);
     let strToFind = "kotlin.code.style=official";
     let replaceByStr = strToFind + os.EOL + "unityStreamingAssets=.unity3d, google-services-desktop.json, google-services.json, GoogleService-Info.plist" + os.EOL;
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
-    //logFile(path);
+    logFile(path);
 }
 
 function changeAndroidBuildGradle() {
     let path = "platforms/android/build.gradle";
-    logFile(path);
+    //logFile(path);
 
     let replaceByStr = "repositories {\nrepos" + os.EOL + "flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" " + os.EOL + " } " + os.EOL + " }";
     
@@ -93,29 +93,31 @@ function changeAndroidBuildGradle() {
     fs.writeFileSync(path, content);
 
     //Log the changed file
-    //logFile(path);
+    logFile(path);
 }
 
 
 function changeAppBuildGradle() {
     let path = "platforms/android/app/build.gradle";
-    logFile(path);
+    //logFile(path);
     let strToFind = "// SUB-PROJECT DEPENDENCIES END";
-    let replaceByStr = "implementation(project(path: \":unityLibrary\"))\n" + strToFind;
+    let extraStr = "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\libs'), include: ['*.jar'])";
+    let replaceByStr = "implementation(project(path: \":unityLibrary\"))\n" + strToFind + "\n" + extraStr;
+    
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
-    //logFile(path);
+    logFile(path);
 }
 
 
 function changeSettingsGradle() {
     let path = "platforms/android/settings.gradle";
-    logFile(path);
+    //logFile(path);
     let strToFind = "include \":app\"";
     let replaceByStr = "include \":unityLibrary\"\n" + strToFind;
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
-    // logFile(path);
+    logFile(path);
 }
 
 
