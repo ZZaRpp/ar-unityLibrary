@@ -81,11 +81,6 @@ function changeGradleProperties() {
 function changeAndroidBuildGradle() {
     let path = "platforms/android/build.gradle";
     //logFile(path);
-
-    let strToFind = "allprojects {";
-    let namespace_ = "android {namespace com.outsystemscloud.acjp.ARUnitySample}" + strToFind;
-    //let namespace_ = "android {namespace cordovaConfig.PACKAGE_NAMESPACE}" + strToFind;
-    changeFileContent(path,strToFind,namespace_);
     
     let replaceByStr = "repositories {\nrepos" + os.EOL + "flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" " + os.EOL + " } " + os.EOL + " }";
     let content = fs.readFileSync(path, "utf8");
@@ -102,6 +97,11 @@ function changeAndroidBuildGradle() {
 function changeAppBuildGradle() {
     let path = "platforms/android/app/build.gradle";
     //logFile(path);
+
+    let strToFind = "cordovaConfig.PACKAGE_NAMESPACE";
+    let namespace_ = "com.outsystemscloud.acjp.ARUnitySample";
+    changeFileContent(path,strToFind,namespace_);
+    
     let strToFind = "// SUB-PROJECT DEPENDENCIES END";
     let extraStr = "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\\\libs'), include: ['*.jar']);";
     let replaceByStr = "implementation(project(path: \":unityLibrary\"))\n" + strToFind + "\n" + extraStr;
