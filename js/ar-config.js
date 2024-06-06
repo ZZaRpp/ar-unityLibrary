@@ -171,8 +171,8 @@ function getAndUnzipUnityLibrary(projRoot){
     let https = require('https');
 
     // URL of the ZIP file
-    let zipUrl = 'https://dl.dropboxusercontent.com/scl/fi/3bifyagqv6z5j8ojm56os/unityLibrary_small.zip?rlkey=ru06653k976b7237c76rmjnvf&st=6mgnoo2p&dl=0';
-    //let zipUrl = 'https://dl.dropboxusercontent.com/scl/fi/2l5awv35rqcqxxs1o5t4n/unityLibrary_changed.zip?rlkey=t38k0q2polhvleubtz1n1c2g5&st=i9mc5zrn&dl=0';
+    //let zipUrl = 'https://dl.dropboxusercontent.com/scl/fi/3bifyagqv6z5j8ojm56os/unityLibrary_small.zip?rlkey=ru06653k976b7237c76rmjnvf&st=6mgnoo2p&dl=0';
+    let zipUrl = 'https://dl.dropboxusercontent.com/scl/fi/2l5awv35rqcqxxs1o5t4n/unityLibrary_changed.zip?rlkey=t38k0q2polhvleubtz1n1c2g5&st=i9mc5zrn&dl=0';
 
     // Path where you want to save the downloaded ZIP file
     let downloadPath = 'platforms/android/unityLibrary.zip';
